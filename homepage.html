@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — PC Word</title>
+  <meta name="description" content="Browse processors, graphics cards, memory, storage, cooling, monitors, peripherals and cabinets at PC Word." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ================= NAVIGATION ================= -->
+  <header class="navbar">
+    <nav class="nav">
+      <div class="logo">
+        <a href="index.html"><span class="logo-mark"></span>PC Word</a>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="homepage.html" class="active">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-pill" aria-label="View cart">
+          🛒
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+        <a href="login.html" class="btn btn-ghost btn-sm" id="authNavLink">Sign In</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= PAGE HEADER ================= -->
+  <main>
+    <section class="page-section" style="padding-bottom: 0;">
+      <div class="wrap">
+        <span class="eyebrow">Full Catalog</span>
+        <h1>Build your rig, piece by piece</h1>
+        <p style="max-width: 560px; margin-top: 8px;">
+          Every component you need for a custom PC build — hand-picked processors, graphics cards, memory,
+          storage, cooling, monitors, peripherals and cabinets.
+        </p>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <div class="wrap">
+
+        <!-- Search + result count -->
+        <div class="catalog-header">
+          <div class="search-bar">
+            <span class="search-icon">⌕</span>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search processors, graphics cards, memory…"
+              aria-label="Search products"
+            />
+          </div>
+          <span class="product-spec" id="resultCount"></span>
+        </div>
+
+        <!-- Category filter chips -->
+        <div class="category-rail" id="categoryRail" role="tablist" aria-label="Filter by category">
+          <button class="chip active" data-category="all">All Products</button>
+          <button class="chip" data-category="cpu">Processors</button>
+          <button class="chip" data-category="gpu">Graphics Cards</button>
+          <button class="chip" data-category="ram">Memory</button>
+          <button class="chip" data-category="ssd">Storage</button>
+          <button class="chip" data-category="cooler">Cooling</button>
+          <button class="chip" data-category="monitor">Monitors</button>
+          <button class="chip" data-category="peripherals">Keyboard &amp; Mouse</button>
+          <button class="chip" data-category="cabinet">Cabinets</button>
+        </div>
+
+        <!-- Product grid — populated by js/script.js from js/products.js -->
+        <div class="product-grid" id="productGrid">
+          <div class="loader" role="status" aria-label="Loading products"></div>
+        </div>
+
+        <noscript>
+          <p style="margin-top: 24px;">
+            This catalog needs JavaScript enabled to display products and manage your cart.
+          </p>
+        </noscript>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 PC Word. Built for people who build their own PCs.</p>
+    </div>
+  </footer>
+
+  <!-- Product data first, then shared UI/catalog logic -->
+  <script src="js/products.js"></script>
+  <script src="js/script.js"></script>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

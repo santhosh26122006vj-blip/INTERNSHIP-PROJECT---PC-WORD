@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart — PC Word</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ================= NAVIGATION ================= -->
+  <header class="navbar">
+    <nav class="nav">
+      <div class="logo">
+        <a href="index.html"><span class="logo-mark"></span>PC Word</a>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="homepage.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-pill" aria-label="View cart">
+          🛒
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+        <a href="login.html" class="btn btn-ghost btn-sm" id="authNavLink">Sign In</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-section">
+      <div class="wrap">
+        <span class="eyebrow">Cart &amp; Checkout</span>
+        <h1 style="margin-bottom: var(--sp-5);">Your Cart</h1>
+
+        <!-- ============== EMPTY CART STATE ============== -->
+        <div id="emptyCartMessage" class="glass-panel" style="display:none; padding: var(--sp-8) var(--sp-5); text-align:center;">
+          <span class="eyebrow" style="display:block; margin-bottom: var(--sp-2);">Nothing here yet</span>
+          <h2 style="margin-bottom: var(--sp-3);">Your cart is empty</h2>
+          <p style="margin-bottom: var(--sp-5);">Browse the catalog and add a few components to get started.</p>
+          <a href="homepage.html" class="btn btn-primary">Browse Products</a>
+        </div>
+
+        <!-- ============== CART + CHECKOUT ============== -->
+        <div id="cartContent" class="cart-layout" style="display:none;">
+
+          <!-- Left column: cart items + delivery form -->
+          <div class="stack gap-5">
+
+            <div>
+              <h2 style="margin-bottom: var(--sp-4);">Items (<span id="itemCountLabel">0</span>)</h2>
+              <div class="cart-list glass-panel" id="cartList" style="padding: var(--sp-3);">
+                <!-- Cart rows injected by js/cart.js -->
+              </div>
+            </div>
+
+            <div class="glass-panel checkout-form" style="padding: var(--sp-5);">
+              <h2>Delivery Details</h2>
+              <p class="field-hint" style="margin: 8px 0 16px;">You must sign in to place an order. Your customer profile and order will be saved to Firebase.</p>
+
+              <form id="checkoutForm" novalidate>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Full name" required />
+                    <span class="field-error" data-error-for="fullName"></span>
+                  </div>
+                  <div class="field">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                    <span class="field-error" data-error-for="email"></span>
+                  </div>
+                </div>
+
+                <div class="field-row">
+                  <div class="field">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required />
+                    <span class="field-error" data-error-for="phone"></span>
+                  </div>
+                  <div class="field">
+                    <label for="pincode">PIN Code</label>
+                    <input type="text" id="pincode" name="pincode" placeholder="6-digit PIN code" required />
+                    <span class="field-error" data-error-for="pincode"></span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="address">Delivery Address</label>
+                  <textarea id="address" name="address" rows="3" placeholder="House / Street / Landmark" required></textarea>
+                  <span class="field-error" data-error-for="address"></span>
+                </div>
+
+                <div class="field-row">
+                  <div class="field">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" placeholder="City" required />
+                    <span class="field-error" data-error-for="city"></span>
+                  </div>
+                  <div class="field">
+                    <label for="state">State</label>
+                    <input type="text" id="state" name="state" placeholder="State" required />
+                    <span class="field-error" data-error-for="state"></span>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="additionalInfo">Additional Delivery Information <span class="field-hint">(optional)</span></label>
+                  <textarea id="additionalInfo" name="additionalInfo" rows="2" placeholder="Preferred delivery time, gate code, etc."></textarea>
+                </div>
+              </form>
+            </div>
+
+          </div>
+
+          <!-- Right column: sticky order summary -->
+          <aside class="glass-panel summary-card">
+            <h2 style="margin-bottom: var(--sp-4);">Order Summary</h2>
+
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="subtotalValue">₹0</span>
+            </div>
+            <div class="summary-row">
+              <span>Shipping</span>
+              <span>Free</span>
+            </div>
+            <div class="summary-row total">
+              <span>Total</span>
+              <span class="val" id="totalValue">₹0</span>
+            </div>
+
+            <button type="submit" form="checkoutForm" class="btn btn-accent btn-block" id="placeOrderBtn" style="margin-top: var(--sp-4);">
+              Place Order
+            </button>
+            <p class="field-hint" style="margin-top: var(--sp-3); text-align:center;">
+              Your order details are saved securely and used only to process delivery.
+            </p>
+          </aside>
+
+        </div>
+
+        <!-- ============== ORDER SUCCESS STATE ============== -->
+        <div id="orderSuccess" class="glass-panel order-success" style="display:none;">
+          <div class="check-mark">✓</div>
+          <h2 style="margin-bottom: var(--sp-2);">Order placed successfully</h2>
+          <p id="orderSuccessDetail" style="margin-bottom: var(--sp-5);">We've received your order and will begin processing it shortly.</p>
+          <a href="homepage.html" class="btn btn-primary">Continue Shopping</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 PC Word. Built for people who build their own PCs.</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/script.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script type="module" src="js/checkout.js"></script>
+</body>
+</html>

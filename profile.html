@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Profile — PC Word</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <nav class="nav">
+      <div class="logo">
+        <a href="index.html"><span class="logo-mark"></span>PC Word</a>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="homepage.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-pill" aria-label="View cart">
+          🛒
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+        <a href="login.html" class="btn btn-ghost btn-sm" id="authNavLink">Sign In</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-section">
+      <div class="wrap" style="max-width: 560px;">
+        <span class="eyebrow">Account</span>
+        <h1 style="margin: var(--sp-3) 0 var(--sp-5);">Your Profile</h1>
+
+        <p id="profileMessage" class="field-error"></p>
+        <div class="glass-panel fade-up" style="padding: var(--sp-6);">
+          <div class="stack gap-4">
+            <div class="field">
+              <label>Full Name</label>
+              <p id="profileName" style="color: var(--text-hi); font-size: 1.05rem; font-weight: 600;">—</p>
+            </div>
+            <div class="field">
+              <label>Email Address</label>
+              <p id="profileEmail" style="color: var(--text-hi);">—</p>
+            </div>
+            <div class="field">
+              <label>Phone Number</label>
+              <p id="profilePhone" style="color: var(--text-hi);">—</p>
+            </div>
+          </div>
+
+          <div class="flex-between" style="gap: var(--sp-3); margin-top: var(--sp-5);">
+            <a href="edit-profile.html" class="btn btn-primary" style="flex:1;">Edit Profile</a>
+            <button id="logoutBtn" class="btn btn-danger-outline" style="flex:1;">Log Out</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 PC Word. Built for people who build their own PCs.</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/script.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script>
+    // Profile values are loaded securely by js/auth.js from Firestore.
+  </script>
+</body>
+</html>

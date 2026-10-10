@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — PC Word</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <nav class="nav">
+      <div class="logo">
+        <a href="index.html"><span class="logo-mark"></span>PC Word</a>
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="homepage.html">Shop</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-pill" aria-label="View cart">
+          🛒
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+        <a href="login.html" class="btn btn-ghost btn-sm" id="authNavLink">Sign In</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-section">
+      <div class="wrap" style="max-width: 760px;">
+        <span class="eyebrow">About PC Word</span>
+        <h1 style="margin: var(--sp-3) 0 var(--sp-5);">Built by people who build PCs</h1>
+
+        <div class="glass-panel fade-up" style="padding: var(--sp-6); margin-bottom: var(--sp-5);">
+          <h2 style="margin-bottom: var(--sp-3);">What we do</h2>
+          <p style="margin-bottom: var(--sp-3);">
+            PC Word is a hardware store for anyone assembling their own computer — from a first budget build
+            to a maxed-out workstation. We keep the catalog focused: five well-chosen options per category,
+            so picking parts doesn't mean scrolling through hundreds of near-identical listings.
+          </p>
+          <p>
+            Every product page shows the specs that actually matter for compatibility and performance, and
+            checkout is a single page — no accounts required to browse, no surprise steps at the end.
+          </p>
+        </div>
+
+        <div class="glass-panel fade-up" style="padding: var(--sp-6); margin-bottom: var(--sp-5);">
+          <h2 style="margin-bottom: var(--sp-3);">What we carry</h2>
+          <p>
+            Processors, graphics cards, memory, storage, cooling, monitors, keyboards &amp; mice, and cabinets —
+            the eight categories that make up a complete build, all in one place.
+          </p>
+        </div>
+
+        <div class="glass-panel fade-up text-center" style="padding: var(--sp-6);">
+          <h2 style="margin-bottom: var(--sp-3);">Ready to build?</h2>
+          <a href="homepage.html" class="btn btn-primary">Browse the Catalog</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 PC Word. Built for people who build their own PCs.</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/script.js"></script>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

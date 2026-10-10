@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PC Word — Build Your Perfect PC</title>
+  <meta name="description" content="PC Word — processors, graphics cards, memory, storage, cooling, monitors, peripherals and cabinets for your next PC build." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ================= NAVIGATION ================= -->
+  <header class="navbar">
+    <nav class="nav">
+      <div class="logo">
+        <a href="index.html"><span class="logo-mark"></span>PC Word</a>
+      </div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="homepage.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="cart.html" class="cart-pill" aria-label="View cart">
+          🛒
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+        <a href="login.html" class="btn btn-ghost btn-sm" id="authNavLink">Sign In</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="page-section">
+      <div class="wrap text-center" style="max-width: 720px; padding-top: var(--sp-6);">
+        <span class="eyebrow">Processors · Graphics Cards · Memory · Storage · Cooling</span>
+        <h1 style="margin-top: var(--sp-3);">Every component. One build.</h1>
+        <p style="margin: var(--sp-4) auto var(--sp-6); max-width: 540px; font-size: 1rem;">
+          PC Word carries hand-picked hardware for first builds, upgrades, and no-compromise rigs —
+          browse by category, compare specs, and check out in minutes.
+        </p>
+        <div class="flex-between" style="justify-content: center; gap: var(--sp-3);">
+          <a href="homepage.html" class="btn btn-primary">Browse Catalog</a>
+          <a href="signup.html" class="btn btn-ghost">Create Account</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CATEGORY HIGHLIGHTS ================= -->
+    <section class="page-section" style="padding-top: 0;">
+      <div class="wrap">
+        <h2 class="text-center" style="margin-bottom: var(--sp-5);">Shop by category</h2>
+        <div class="product-grid" id="categoryHighlights">
+          <a href="homepage.html" class="product-card fade-up" style="text-decoration:none;">
+            <div class="product-thumb"><span class="eyebrow" style="font-size:1.4rem;">CPU</span></div>
+            <div class="product-body"><h3 class="product-name">Processors</h3><span class="product-spec">Intel &amp; AMD, 5 options</span></div>
+          </a>
+          <a href="homepage.html" class="product-card fade-up" style="text-decoration:none;">
+            <div class="product-thumb"><span class="eyebrow" style="font-size:1.4rem;">GPU</span></div>
+            <div class="product-body"><h3 class="product-name">Graphics Cards</h3><span class="product-spec">Entry to flagship, 5 options</span></div>
+          </a>
+          <a href="homepage.html" class="product-card fade-up" style="text-decoration:none;">
+            <div class="product-thumb"><span class="eyebrow" style="font-size:1.4rem;">RAM</span></div>
+            <div class="product-body"><h3 class="product-name">Memory</h3><span class="product-spec">DDR4 &amp; DDR5 kits, 5 options</span></div>
+          </a>
+          <a href="homepage.html" class="product-card fade-up" style="text-decoration:none;">
+            <div class="product-thumb"><span class="eyebrow" style="font-size:1.4rem;">SSD</span></div>
+            <div class="product-body"><h3 class="product-name">Storage</h3><span class="product-spec">NVMe Gen3 to Gen5, 5 options</span></div>
+          </a>
+        </div>
+        <div class="text-center" style="margin-top: var(--sp-5);">
+          <a href="homepage.html" class="btn btn-ghost">View Full Catalog →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 PC Word. Built for people who build their own PCs.</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/script.js"></script>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

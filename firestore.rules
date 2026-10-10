@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function ownsCustomer(uid) { return signedIn() && request.auth.uid == uid; }
+
+    match /customers/{uid} {
+      allow create: if ownsCustomer(uid)
+        && request.resource.data.uid == request.auth.uid
+        && request.resource.data.email == request.auth.token.email;
+      allow read: if ownsCustomer(uid);
+      allow update: if ownsCustomer(uid)
+        && request.resource.data.uid == resource.data.uid
+        && request.resource.data.email == resource.data.email;
+      allow delete: if false;
+    }
+
+    match /orders/{orderId} {
+      allow create: if signedIn()
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.customer is map
+        && request.resource.data.items is list
+        && request.resource.data.items.size() > 0
+        && request.resource.data.items.size() <= 50
+        && request.resource.data.itemCount is int
+        && request.resource.data.itemCount > 0
+        && request.resource.data.totalPrice is number
+        && request.resource.data.totalPrice >= 0
+        && request.resource.data.status == 'Placed';
+      allow read: if signedIn() && resource.data.userId == request.auth.uid;
+      allow update, delete: if false;
+    }
+
+    // Product catalogue is currently served from js/products.js, not Firestore.
+    match /{document=**} { allow read, write: if false; }
+  }
+}
